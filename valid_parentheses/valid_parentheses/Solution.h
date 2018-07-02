@@ -14,23 +14,27 @@ public:
 		std::stack<char> sStack;
 		//repeat string size
 		for (unsigned int i = 0; i < s.size(); i++) {
-			std::cout << "string: "<<s[i]<<std::endl;
+//			cout << "string: "<<s[i]<<std::endl;
 			if (leftParentheses.find(s[i]) != std::string::npos) {
-				std::cout << "push " << s[i] << std::endl;
+				//cout << "push " << s[i] << std::endl;
 				sStack.push(s[i]);
 			}
 			else if (rightParentheses.find(s[i] != std::string::npos)) {
 				if (sStack.empty()) {
-					std::cout << "stack empty" << std::endl;
+					//cout << "stack empty" << std::endl;
 					return false;
 				}
 				else if (leftParentheses.find(sStack.top()) == rightParentheses.find(s[i])) {
-				std::cout << "pop" << s[i] << std::endl;
+					//cout << "pop" << s[i] << std::endl;
 					sStack.pop();
+				}
+				else {
+					//cout << sStack.top()<<" not correspond to " << s[i] << std::endl;
+					return false;
 				}
 			}
 			else {
-			//	std::cout << "no such character "<<s[i] << std::endl;
+				//cout << "no such character "<<s[i] << std::endl;
 				return false;
 			}
 		}
