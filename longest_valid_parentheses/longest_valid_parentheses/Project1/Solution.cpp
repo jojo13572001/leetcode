@@ -1,7 +1,6 @@
 #include "Solution.h"
 #include <stack>
-
-
+#include <algorithm>
 
 Solution::Solution()
 {
@@ -11,35 +10,30 @@ Solution::Solution()
 Solution::~Solution()
 {
 }
-
 int Solution::longestValidParentheses(string s) {
-	stack<char> cStack;
-	int count = 0;
-	char leftC = '(', rightC = ')';
+	stack<int> cStack;
+	int Max = 0;
+	cStack.push(-1);
 	for (unsigned int i = 0; i < s.size(); i++) {
-		if (s[i] == '(') {
-			cStack.push('(');
+		if (s[i] == '('){
+			cStack.push(i);
 		}
 		else if (s[i] == ')') {
 			if (cStack.empty()) {
-				continue;
+				cStack.push(i);
 			}
-			else if (cStack.top() == '(') {
+			else if(cStack.top() == '('){
 				cStack.pop();
-				count+=2;
-			}
-			else {
-				continue;
+				Max = max((int)i - cStack.top() , Max);
 			}
 		}
 	}
-	return count;
+	return Max;
 	//create a stack
-	//create left char, right char
-	//if s[i] = left, push
-	//else if s[i] = right, 
+	//create max=0 
+	//repeat s[i]
+	//if s[i] = left char, push i
+	//else if s[i] = right char
 	// - 1. if stack empty, skip 
-	// - 2. else if stack.top = left char,pop, count++
-	// - 3. else skip
-	//else skip
+	// - 2. else if stack.top = left char, pop , max= Max(i-s[top]+1, max)
 }

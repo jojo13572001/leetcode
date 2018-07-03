@@ -30,7 +30,21 @@ namespace UnitTest
 		{
 			std::string paren = "()(()";
 			Solution solu;
+			Assert::AreEqual(solu.longestValidParentheses(paren), 2);
+			// TODO: 您的測試程式碼在這裡
+		}
+		TEST_METHOD(TestMethod4)
+		{
+			std::string paren = ")()())()()(";
+			Solution solu;
 			Assert::AreEqual(solu.longestValidParentheses(paren), 4);
+			// TODO: 您的測試程式碼在這裡
+		}
+		TEST_METHOD(TestMethod5)
+		{
+			std::string paren = "(()(((()";
+			Solution solu;
+			Assert::AreEqual(solu.longestValidParentheses(paren), 2);
 			// TODO: 您的測試程式碼在這裡
 		}
 	};
