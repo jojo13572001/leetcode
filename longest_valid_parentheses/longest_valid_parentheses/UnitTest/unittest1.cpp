@@ -14,8 +14,8 @@ namespace UnitTest
 			std::string paren = "(()";
 			Solution solu;
 			int result = solu.longestValidParentheses(paren);
-			string test = std::to_string(result);
-			Logger::WriteMessage(test.c_str());
+			//string test = std::to_string(result);
+			//Logger::WriteMessage(test.c_str());
 			Assert::AreEqual(result, 2);
 			// TODO: 您的測試程式碼在這裡
 		}
@@ -23,7 +23,10 @@ namespace UnitTest
 		{
 			std::string paren = ")()())";
 			Solution solu;
-			Assert::AreEqual(solu.longestValidParentheses(paren), 4);
+			int result = solu.longestValidParentheses(paren);
+			string test = std::to_string(result);
+			Logger::WriteMessage(test.c_str());
+			Assert::AreEqual(result, 4);
 			// TODO: 您的測試程式碼在這裡
 		}
 		TEST_METHOD(TestMethod3)

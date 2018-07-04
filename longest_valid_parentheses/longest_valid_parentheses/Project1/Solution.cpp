@@ -19,21 +19,22 @@ int Solution::longestValidParentheses(string s) {
 			cStack.push(i);
 		}
 		else if (s[i] == ')') {
-			if (cStack.empty()) {
-				cStack.push(i);
-			}
-			else if(cStack.top() == '('){
+			if(cStack.top()>-1 && s[cStack.top()] == '('){
 				cStack.pop();
 				Max = max((int)i - cStack.top() , Max);
+			}
+			else {
+				cStack.push(i);
 			}
 		}
 	}
 	return Max;
 	//create a stack
 	//create max=0 
+	//push -1 to stack
 	//repeat s[i]
 	//if s[i] = left char, push i
 	//else if s[i] = right char
-	// - 1. if stack empty, skip 
-	// - 2. else if stack.top = left char, pop , max= Max(i-s[top]+1, max)
+	// - 1. if stack.top = left char, pop , max= Max(i-stack[top], max)
+	// - 2. else stack.push(i)
 }
