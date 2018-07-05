@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 using namespace std;
 class Solution
@@ -7,6 +8,9 @@ class Solution
 public:
 Solution();
 	~Solution();
-	int longestValidParentheses(string s);
+	int longestValidParentheses_stack(string s);
+	int longestValidParentheses_dp(string s);
+private:
+	vector<int> dp;
 };
 
