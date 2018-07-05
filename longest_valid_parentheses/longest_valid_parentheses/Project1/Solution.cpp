@@ -45,17 +45,19 @@ int Solution::longestValidParentheses_dp(string s) {
 	dp.push_back(0);
 	for (int i = 1; i < (int)s.size(); i++) {
 		dp.push_back(0);
-		if (s[i] == ')') {
+		if (s[i] == ')') {//()()
 			if (s[i - 1] == '(') {
 				if ((i - 2) < 0) {
 					dp[i] = 2;
 				}
 				else {
-					dp[i] = dp[i - 2] + dp[dp[i-2] -1] + 2;
+					dp[i] = dp[i - 2] + 2;
 				}
-			}
-			else if (s[i - 1] == ')' && s[i - dp[i - 1] - 1] == '(') {
-				dp[i] = dp[i - 1] + 2;
+			}//(())
+			else if (s[i - 1] == ')') {
+				if (s[i - dp[i - 1] - 1] == '(') {
+					dp[i] = dp[i - 1] + 2 + dp[i - dp[i - 1] - 2];//()(())
+				}
 			}
 			Max = max(dp[i], Max);
 		}

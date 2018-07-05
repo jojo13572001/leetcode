@@ -57,5 +57,12 @@ namespace UnitTest
 			Assert::AreEqual(solu.longestValidParentheses_dp(paren), 6);
 			// TODO: 您的測試程式碼在這裡
 		}
+		TEST_METHOD(TestMethod7)
+		{
+			std::string paren = "))())))(()))))))))))((())((((())))(())())))()()()())())())()()))))(()()(((())))())((()(((()(((()(())(()()))(()()(()())(((((((()((())(())))))(()(((((()(()(()))()))()(()))())(())()";
+			Solution solu;
+			Assert::AreEqual(solu.longestValidParentheses_dp(paren), 6);
+			// TODO: 您的測試程式碼在這裡
+		}
 	};
 }
