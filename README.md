@@ -1,2 +1,2 @@
-# lintcode
-Lintcode Practice
+# leetcode
+Leetcode Practice
